@@ -175,7 +175,7 @@
 										width="500" height="250">
 									</c:if>
 									<c:if test="${ !empty rc.team_rename_image }">
-									<img class="card-img-top w-100" src="${ pageContext.servletContext.contextPath }/resources/recruit_files/${ rc.team_rename_image }" alt="courses"
+									<img class="card-img-top w-100" src="${ pageContext.servletContext.contextPath }/resources/team_page/team_images/${ rc.team_rename_image }" alt="courses"
 										width="500" height="250">
 									</c:if>
 									<div class="card-body">				

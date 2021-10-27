@@ -96,7 +96,7 @@ function content(){
 					</c:if>
 					<c:if test="${ !empty recruit.team_rename_image }">
 						<img class="card-img-top w-100"
-							src="${ pageContext.servletContext.contextPath }/resources/recruit_files/${ recruit.team_rename_image }"
+							src="${ pageContext.servletContext.contextPath }/resources/team_page/team_images/${ recruit.team_rename_image }"
 							alt="courses" width="700" height="450">
 					</c:if>
 					
