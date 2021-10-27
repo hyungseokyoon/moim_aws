@@ -79,7 +79,6 @@ public class TPmanageController {
 		
 		// 업로드된 파일 저장 폴더 지정하기
 		String savePath = request.getSession().getServletContext().getRealPath("resources/team_page/team_images/");
-		
 		// 새로운 첨부파일이 있을때
 		if (!mfile.isEmpty()) {
 			logger.info("새로운 첨부파일이 있을 때");
