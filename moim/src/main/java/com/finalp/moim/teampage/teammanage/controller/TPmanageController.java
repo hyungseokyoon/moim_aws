@@ -78,7 +78,7 @@ public class TPmanageController {
 			@RequestParam(name = "upfile", required = false) MultipartFile mfile) {
 		
 		// 업로드된 파일 저장 폴더 지정하기
-		String savePath = request.getSession().getServletContext().getRealPath("resources/team_page/team_images");
+		String savePath = request.getSession().getServletContext().getRealPath("resources/team_page/team_images/");
 		
 		// 새로운 첨부파일이 있을때
 		if (!mfile.isEmpty()) {
@@ -87,7 +87,7 @@ public class TPmanageController {
 			if (team.getTeam_original_image() != null) {
 				// logger.info("이전 첨부파일 삭제");
 				// 저장 폴더에서 파일을 삭제함
-				new File(savePath + "/" + team.getTeam_rename_image()).delete();
+				new File(savePath + team.getTeam_rename_image()).delete();
 				team.setTeam_original_image(null);
 				team.setTeam_rename_image(null);
 			}
@@ -95,7 +95,7 @@ public class TPmanageController {
 			String fileName = mfile.getOriginalFilename();
 			if (fileName != null && fileName.length() > 0) {
 				try {
-					mfile.transferTo(new File(savePath + "/" + fileName));
+					mfile.transferTo(new File(savePath + fileName));
 
 					// 저장된 첨부파일 이름 바꾸기
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -106,8 +106,8 @@ public class TPmanageController {
 					renameFileName += "." + fileName.substring(fileName.lastIndexOf(".") + 1);
 
 					// 파일명 바꾸기 실행함 : java.io.File 을 이용함
-					File originFile = new File(savePath + "/" + fileName);
-					File renameFile = new File(savePath + "/" + renameFileName);
+					File originFile = new File(savePath + fileName);
+					File renameFile = new File(savePath + renameFileName);
 
 					if (!originFile.renameTo(renameFile)) {
 						// 파일 이름바꾸기 실패시 직접 바꾸기
